@@ -7,7 +7,7 @@ export default function Home() {
         <div className="hero-img relative w-full h-full">
           <Image src="/images/hero.jpg" width={1200} height={800} alt="Khyber afghan english language and computer acadmey" className="w-full h-full object-contain" />
         </div>
-        <div className="her0-content absolute inset-0 bg-gray-100 to-transparent">
+        <div className="her0-content absolute inset-0 bg-[#e6dada92] to-transparent">
           <div className="flex flex-col items-center justify-center h-full text-white text-center">
             <h1 className="text-4xl md:text-6xl font-bold mb-4">Khyber Afghan English Language and Computer Academy</h1>
             <p className="text-lg md:text-xl mb-8">Empowering Futures Through Education</p>
