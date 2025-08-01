@@ -18,16 +18,16 @@ const Navbar = () => {
                     <div className="logo-area flex items-center justify-between gap-5 md:w-auto w-full">
                         <div className="logo">
                             <a href="/" className="text-white text-2xl font-bold">
-                                <Image src={"/logo.jpg"} alt="Khyber Afghan English Language & Computer Academy" width={100} height={100} className='w-[80px] h-[80px] rounded-full border-2 border-blue-400' />
+                                <Image src={"/logo.jpg"} alt="Khyber Afghan English Language & Computer Academy" width={100} height={100} className='w-[80px] h-[80px] rounded-full border-2 border-amber-400' />
                             </a>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-lg text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
+                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-white text-black p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 Login
                             </button>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-3xl text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
+                            <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-3xl dark:text-white text-black p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 <FiAlignRight />
                             </button>
                         </div>
