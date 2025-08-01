@@ -1,3 +1,5 @@
+"use client";
+
 import React from 'react'
 import Image from 'next/image'
 import { FiAlignRight } from "react-icons/fi";
@@ -7,7 +9,7 @@ const Navbar = () => {
     return (
         <header className="w-full dark:bg-slate-800 bg-white  shadow-md">
             <div className="container mx-auto">
-                <div className="header flex items-center justify-between py-2 px-1">
+                <div className="header flex md:flex-row flex-col items-center justify-between py-2 px-1">
                     <div className="logo-area flex items-center justify-between gap-5 md:w-auto w-full">
                         <div className="logo">
                             <a href="/" className="text-white text-2xl font-bold">
@@ -15,21 +17,24 @@ const Navbar = () => {
                             </a>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button className="cursor-pointer bg-white rounded-md font-bold text-3xl text-black p-2 hover:bg-blue-500 hover:text-white transition duration-300 ease-in-out">
+                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-lg text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
+                                Login
+                            </button>
+                        </div>
+                        <div className="sidebarButton md:hidden">
+                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-3xl text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
                                 <FiAlignRight />
                             </button>
                         </div>
                     </div>
 
-                    <nav>
-                        <ul className="flex items-center justify-center gap-2">
+                    <nav className='md:mt-auto mt-5 md:w-auto w-full '>
+                        <ul className="flex bg-gray-200 md:flex-row flex-col items-center md:justify-center justify-start md:w-auto w-full ">
                             {
-                                Array.from(["Home", "About", "Courses", "Contact"]).map((ele, ind) => <li className="mx-2">
-                                    <Link href={ele.toLowerCase() == "home" ? "/" : "/" + ele.toLowerCase()} className='dark:text-white  text-blue-700 hover:text-blue-500 transition duration-300 ease-in-out text-lg font-bold p-2 '>{ele}</Link>
+                                Array.from(["Home", "About", "Courses", "Contact"]).map((ele, ind) => <li key={ind} className="mx-2 md:my-auto my-2 w-full">
+                                    <Link  href={ele.toLowerCase() == "home" ? "/" : "/" + ele.toLowerCase()} className='md:w-auto w-full md:text-center text-left dark:text-white  text-blue-700 hover:text-blue-500 transition duration-300 ease-in-out md:text-lg font-bold p-2 '>{ele}</Link>
                                 </li>)
                             }
-
-
                         </ul>
                     </nav>
 
