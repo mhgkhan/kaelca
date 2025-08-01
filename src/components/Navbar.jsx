@@ -1,11 +1,16 @@
 "use client";
 
-import React from 'react'
+import React, { useState } from 'react'
 import Image from 'next/image'
 import { FiAlignRight } from "react-icons/fi";
 import Link from 'next/link';
 
 const Navbar = () => {
+
+
+    const [openedNav, setOpenNav] = useState(false);
+
+
     return (
         <header className="w-full dark:bg-slate-800 bg-white  shadow-md">
             <div className="container mx-auto">
@@ -22,17 +27,17 @@ const Navbar = () => {
                             </button>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-3xl text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
+                            <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-blue-500 font-bold text-3xl text-white p-2 bg-blue-500 hover:text-black transition duration-300 ease-in-out">
                                 <FiAlignRight />
                             </button>
                         </div>
                     </div>
 
-                    <nav className='md:mt-auto mt-5 md:w-auto w-full '>
-                        <ul className="flex bg-gray-200 md:flex-row flex-col items-center md:justify-center justify-start md:w-auto w-full ">
+                    <nav className={`md:h-auto transition-all duration-300 h-0 overflow-hidden md:mt-0 ${openedNav? "mt-5 h-[200px]":"h-0"} md:w-auto w-full`}>
+                        <ul className="flex md:flex-row flex-col items-center md:justify-center justify-start md:w-auto w-full ">
                             {
                                 Array.from(["Home", "About", "Courses", "Contact"]).map((ele, ind) => <li key={ind} className="mx-2 md:my-auto my-2 w-full">
-                                    <Link  href={ele.toLowerCase() == "home" ? "/" : "/" + ele.toLowerCase()} className='md:w-auto w-full md:text-center text-left dark:text-white  text-blue-700 hover:text-blue-500 transition duration-300 ease-in-out md:text-lg font-bold p-2 '>{ele}</Link>
+                                    <Link href={ele.toLowerCase() == "home" ? "/" : "/" + ele.toLowerCase()} className='md:w-auto w-full md:text-center text-left dark:text-white  text-blue-700 hover:text-blue-500 transition duration-300 ease-in-out md:text-lg font-bold p-2 '>{ele}</Link>
                                 </li>)
                             }
                         </ul>
