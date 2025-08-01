@@ -3,6 +3,8 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { FiAlignRight } from "react-icons/fi";
+import {GrClose} from "react-icons/gr"; 
+
 import Link from 'next/link';
 
 const Navbar = () => {
@@ -28,7 +30,7 @@ const Navbar = () => {
                         </div>
                         <div className="sidebarButton md:hidden">
                             <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-3xl dark:text-white text-black p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
-                                <FiAlignRight />
+                                {openedNav ? <GrClose /> : <FiAlignRight />}
                             </button>
                         </div>
                     </div>
