@@ -24,12 +24,12 @@ const Navbar = () => {
                             </a>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-white text-black p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
+                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-black text-white p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 Login
                             </button>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-3xl dark:text-white text-black p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
+                            <button onClick={() => setOpenNav(!openedNav)} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-3xl dark:text-black text-white p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 {openedNav ? <GrClose /> : <FiAlignRight />}
                             </button>
                         </div>
