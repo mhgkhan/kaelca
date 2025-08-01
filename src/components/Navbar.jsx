@@ -3,14 +3,16 @@
 import React, { useState } from 'react'
 import Image from 'next/image'
 import { FiAlignRight } from "react-icons/fi";
-import {GrClose} from "react-icons/gr"; 
+import { GrClose } from "react-icons/gr";
 
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 const Navbar = () => {
 
 
     const [openedNav, setOpenNav] = useState(false);
+    const router = useRouter();
 
 
     return (
@@ -24,7 +26,7 @@ const Navbar = () => {
                             </a>
                         </div>
                         <div className="sidebarButton md:hidden">
-                            <button className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-black text-white p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
+                            <button onClick={()=>router.push("/login")} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-black text-white p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 Login
                             </button>
                         </div>
@@ -35,7 +37,7 @@ const Navbar = () => {
                         </div>
                     </div>
 
-                    <nav className={`md:h-auto transition-all duration-300 h-0 overflow-hidden md:mt-0 ${openedNav? "mt-5 h-[200px]":"h-0"} md:w-auto w-full`}>
+                    <nav className={`md:h-auto transition-all duration-300 h-0 overflow-hidden md:mt-0 ${openedNav ? "mt-5 h-[200px]" : "h-0"} md:w-auto w-full`}>
                         <ul className="flex md:flex-row flex-col items-center md:justify-center justify-start md:w-auto w-full ">
                             {
                                 Array.from(["Home", "About", "Courses", "Contact"]).map((ele, ind) => <li key={ind} className="mx-2 md:my-auto my-2 w-full">
