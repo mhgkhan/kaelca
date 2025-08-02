@@ -1,6 +1,5 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaBookOpen } from "react-icons/fa";
 import { MdSchool } from "react-icons/md";
 export default function Home() {
   return (
@@ -13,8 +12,8 @@ export default function Home() {
           <div className="container mx-auto w-full h-full">
             <div className="flex flex-col items-center justify-center h-full text-white text-center">
               <h1 className="text-4xl md:text-6xl font-bold mb-4 text-blue-800 text-shadow-2xs text-shadow-amber-600">Khyber Afghan English Language and Computer Academy</h1>
-              <p className="text-lg md:text-xl mb-8 px-3 bg-blue-800">Empowering Futures Through Education</p>
-              <Link href="#/courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+              <p className="text-lg md:text-xl mb-8 px-3 bg-blue-800 rounded-sm">Empowering Futures Through Education</p>
+              <Link href="#courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
                 Explore Courses
               </Link>
             </div>
@@ -23,7 +22,7 @@ export default function Home() {
       </section>
 
       <section>
-        <div className="container mx-auto py-16">
+        <div className="container mx-auto py-16" id="courses">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 flex items-center gap-3"> <MdSchool className="text-blue-800 md:text-5xl text-4xl" /> Our Courses</h2>
 
           <div className="flex items-center justify-center gap-6 flex-wrap md:px-0 px-1">
@@ -71,6 +70,40 @@ export default function Home() {
 
         </div>
       </section>
+
+
+      <section className="w-full bg-[url('/images/books.jpg')] bg-fixed bg-cover bg-center">
+        <div className="container mx-auto">
+          <div className="md:px-0 px-2 py-16 text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">About Khyber Afghan Academy</h2>
+            <p className="text-lg md:text-xl mb-6">Since its founding, Khyber Afghan Academy has trained hundreds of students in spoken English, computing, and digital skills. Our expert instructors are committed to helping each student succeed.</p>
+            <Link href="#courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+              Learn More
+            </Link>
+          </div>
+        </div>
+      </section>
+
+
+      <section className="w-full">
+        <div className="container mx-auto">
+          <div className="md:px-0 px-2 py-16 text-center text-white">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Learning </h2>
+            <p className="text-lg md:text-xl mb-6">
+              Join now and unlock your potential through certified language and computer education.</p>
+            <div className="flex items-center justify-center gap-3">
+              <Link href="#courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                Contact Us
+              </Link>
+
+              <Link href="#courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
+                Join Course
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
 
     </>
   );
