@@ -6,7 +6,14 @@ export default function Home() {
     <>
       <section className="w-full h-[80vh] relative">
         <div className="hero-img relative w-full h-full">
+          {/* <Image src="/images/hero.jpg" width={1200} height={800} alt="Khyber afghan english language and computer academy" className="w-full h-full object-cover" /> */}
           <Image src="/images/hero.jpg" width={1200} height={800} alt="Khyber afghan english language and computer academy" className="w-full h-full object-cover" />
+
+          <video autoPlay loop muted className="w-full h-full object-cover absolute inset-0">
+            <source src="https://cdn.pixabay.com/video/2019/03/11/21941-323198485_large.mp4" type="video/mp4" />
+          </video>
+
+
         </div>
         <div className="her0-content absolute inset-0 bg-[#e6dada92] to-transparent">
           <div className="container mx-auto w-full h-full">
@@ -25,10 +32,10 @@ export default function Home() {
         <div className="container mx-auto py-16" id="courses">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 flex items-center gap-3"> <MdSchool className="text-blue-800 md:text-5xl text-4xl" /> Our Courses</h2>
 
-          <div className="flex items-center justify-center gap-6 flex-wrap md:px-0 px-2">
+          <div className="card-courses-container flex items-center justify-center gap-6 flex-wrap md:px-0 px-2">
 
 
-            <div className="dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
+            <div className="card-courses dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
               <Image src={"/images/books.jpg"} width={500} height={300} alt="Course 1" className="w-full h-48 object-cover rounded-lg mb-4" />
               <h3 className="text-2xl font-bold mb-2 px-1 ">English Language Course</h3>
               <p className="text-gray-700 mb-4 dark:text-gray-200">Enhance your English language skills with our comprehensive course designed for all levels.</p>
@@ -46,7 +53,7 @@ export default function Home() {
             </div>
 
 
-            <div className="dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
+            <div className="card-courses dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
               <Image src={"/images/laptop.jpg"} width={500} height={300} alt="Course 1" className="w-full h-48 object-cover rounded-lg mb-4" />
               <h3 className="font-bold mb-2 text-2xl">Computer Courses </h3>
               <p className="text-gray-700 mb-4 dark:text-gray-200">
