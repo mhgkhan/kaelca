@@ -25,7 +25,7 @@ export default function Home() {
         <div className="container mx-auto py-16" id="courses">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 flex items-center gap-3"> <MdSchool className="text-blue-800 md:text-5xl text-4xl" /> Our Courses</h2>
 
-          <div className="flex items-center justify-center gap-6 flex-wrap md:px-0 px-1">
+          <div className="flex items-center justify-center gap-6 flex-wrap md:px-0 px-2">
 
 
             <div className="dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
