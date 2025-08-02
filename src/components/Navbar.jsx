@@ -25,7 +25,7 @@ const Navbar = () => {
                                 <Image src={"/logo.jpg"} alt="Khyber Afghan English Language & Computer Academy" width={100} height={100} className='w-[80px] h-[80px] rounded-full border-2 border-amber-400' />
                             </a>
                         </div>
-                        <div className="sidebarButton md:hidden">
+                        <div className="sidebarButton">
                             <button onClick={()=>router.push("/login")} className="cursor-pointer hover:bg-white rounded-md border-2 border-amber-500 font-bold text-lg dark:text-black text-white p-2 bg-amber-400 hover:text-black transition duration-300 ease-in-out">
                                 Login
                             </button>
