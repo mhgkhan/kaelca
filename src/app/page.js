@@ -87,9 +87,9 @@ export default function Home() {
 
       <section className="w-full">
         <div className="container mx-auto">
-          <div className="md:px-0 px-2 py-16 text-center text-white">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Ready to Start Learning </h2>
-            <p className="text-lg md:text-xl mb-6">
+          <div className="md:px-0 px-2 py-16 text-center ">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 dark:text-white text-black">Ready to Start Learning </h2>
+            <p className="text-lg md:text-xl mb-6 dark:text-gray-200 text-gray-700">
               Join now and unlock your potential through certified language and computer education.</p>
             <div className="flex items-center justify-center gap-3">
               <Link href="#courses" className="bg-blue-800 text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300">
