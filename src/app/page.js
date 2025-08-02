@@ -9,8 +9,8 @@ export default function Home() {
           {/* <Image src="/images/hero.jpg" width={1200} height={800} alt="Khyber afghan english language and computer academy" className="w-full h-full object-cover" /> */}
           <Image src="/images/hero.jpg" width={1200} height={800} alt="Khyber afghan english language and computer academy" className="w-full h-full object-cover" />
 
-          <video autoPlay loop muted className="w-full h-full object-cover absolute inset-0">
-            <source src="https://cdn.pixabay.com/video/2019/03/11/21941-323198485_large.mp4" type="video/mp4" />
+          <video async autoPlay loop muted className="w-full h-full object-cover absolute inset-0">
+            <source async src="https://cdn.pixabay.com/video/2019/03/11/21941-323198485_large.mp4" type="video/mp4" />
           </video>
 
 
