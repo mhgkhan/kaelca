@@ -26,15 +26,15 @@ export default function Home() {
         <div className="container mx-auto py-16">
           <h2 className="text-3xl md:text-4xl font-bold text-center mb-8 flex items-center gap-3"> <MdSchool className="text-blue-800 md:text-5xl text-4xl" /> Our Courses</h2>
 
-          <div className="flex items-center justify-center gap-6 flex-wrap">
+          <div className="flex items-center justify-center gap-6 flex-wrap md:px-0 px-1">
 
 
             <div className="dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
               <Image src={"/images/books.jpg"} width={500} height={300} alt="Course 1" className="w-full h-48 object-cover rounded-lg mb-4" />
-              <h3 className="text-xl font-semibold mb-2">English Language Course</h3>
+              <h3 className="text-2xl font-bold mb-2 px-1 ">English Language Course</h3>
               <p className="text-gray-700 mb-4 dark:text-gray-200">Enhance your English language skills with our comprehensive course designed for all levels.</p>
 
-              <h4 className="text-lg font-semibold mb-2">Course Details:</h4>
+              <h4 className="text-xl font-bold mb-2">Course Details:</h4>
               <ul className="list-disc list-inside mb-4">
                 <li>Basic to Advanced Levels </li>
                 <li>Classes: Monday to Saturday</li>
@@ -49,12 +49,12 @@ export default function Home() {
 
             <div className="dark:bg-slate-700 bg-white  md:w-[500px] w-full h-auto border-dotted border-2 border-blue-800 p-4 rounded-lg shadow-lg">
               <Image src={"/images/laptop.jpg"} width={500} height={300} alt="Course 1" className="w-full h-48 object-cover rounded-lg mb-4" />
-              <h3 className="text-xl font-semibold mb-2">Computer Courses </h3>
+              <h3 className="font-bold mb-2 text-2xl">Computer Courses </h3>
               <p className="text-gray-700 mb-4 dark:text-gray-200">
                 Master essential computer skills with our computer courses, covering everything from basic to advanced topics.
               </p>
 
-              <h4 className="text-lg font-semibold mb-2">Course Details:</h4>
+              <h4 className=" font-bold mb-2 text-xl">Course Details:</h4>
               <ul className="list-disc list-inside mb-4">
                 <li>Windows </li>
                 <li>MS word, Excel, Powerpoint </li>
