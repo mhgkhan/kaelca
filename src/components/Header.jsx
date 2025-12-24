@@ -5,6 +5,7 @@ import React,{useState} from 'react'
 import Image from "next/image"
 import Link from "next/link"
 import { FaUser } from 'react-icons/fa'
+import Logo from './Logo'
 
 const Header = ({ }) => {
 
@@ -18,10 +19,7 @@ const Header = ({ }) => {
             <div className="container mx-auto flex items-end justify-between relative">
                
                {/* logo section  */}
-                <div className='Logo flex md:flex-row flex-col  items-end justify-center cursor-pointer'>
-                    <Image src="/logo.jpg" alt="KAELACA LOGO" width={80} height={80} className='rounded-full m-1' />
-                    <p className='text-2xl underline  p-1 md:block hidden'>KAELACA</p>
-                </div>
+               <Logo />
 
                 {/* nav section  */}
                 <div className='user-data flex items-end justify-center m-2 gap-3 cursor-pointer relative' onClick={()=>setOpenedDailog(!openedDailog)}>
@@ -32,7 +30,7 @@ const Header = ({ }) => {
                         <Link href="/logout" className="px-1 py-2 bg-gray-200 hover:bg-white text-black rounded-sm w-full block my-1">Logout</Link>
                     </div>
                 </div>
-                
+
             </div>
         </header>
     )
