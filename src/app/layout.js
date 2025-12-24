@@ -1,6 +1,7 @@
 import { Ruluko, Merriweather_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 
 
@@ -34,7 +35,8 @@ export default function RootLayout({ children }) {
         className={`${ruluko.className} ${merriweathersans.variable}  antialiased`}
       >
         <Header />
-        <main>{children}</main>
+        <main className="min-h-[70vh]">{children}</main>
+        <Footer />
       </body>
     </html>
   );
