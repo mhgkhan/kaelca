@@ -5,6 +5,7 @@
 import React, { useState } from 'react'
 import Link from "next/link"
 import { FaKey, FaUser } from "react-icons/fa";
+import { submitForm } from '@/utils/UsableFunctions';
 
 
 const LoginForm = () => {
@@ -16,6 +17,14 @@ const LoginForm = () => {
 
     const [isEmailValid, seIsEmailValid] = useState(true);
     const [isPasswordValid, setIsPasswordValid] = useState(true);
+
+
+    const [loading, setLoading] = useState(false);
+
+    const [resMessage, setResMessage] = useState("");
+    const [resErr, setResErr] = useState(false);
+    const [isRes, setIsRes] = useState(false);
+
 
 
     const updateInput = e => {
@@ -45,12 +54,44 @@ const LoginForm = () => {
 
 
 
-    
+    const submitLogin = async e => {
+        e.preventDefault();
+
+
+        if (!isEmailValid) {
+            setResErr(true);
+            setResMessage("email is not vlaid");
+        }
+        else if (!isPasswordValid) {
+            setResErr(true);
+            setResMessage("Password is not vlaid");
+        }
+
+        else {
+
+            // let obj = {};
+            setLoading(true);
+            const sendRequest = await submitForm("/api/auth/signin", "POST", { "content-type": "application/json" }, JSON.stringify(formData))
+
+            if (sendRequest.success) {
+                setResErr(false);
+                setResMessage(sendRequest.message);
+            }
+            else {
+                setResErr(true);
+                setResMessage(sendRequest.message);
+            }
+            setIsRes(true);
+
+            setLoading(false);
+        }
+
+    }
 
 
 
     return (
-        <form autoComplete="off" className="md:w-[60%] w-[90%]  rounded-md  p-2 my-5 backdrop-blur-md bg-[#c2c5ee5d] mx-auto block">
+        <form onSubmit={submitLogin} autoComplete="off" className="md:w-[60%] w-[90%]  rounded-md  p-2 my-5 backdrop-blur-md bg-[#c2c5ee5d] mx-auto block">
             <h1 className="text-2xl font-bold m-2">Login to your account!</h1>
             <p className="text-lg p-1">You need to login to your account!.</p>
 
@@ -69,7 +110,13 @@ const LoginForm = () => {
 
             <br />
 
-            <button type="button" className="bg-blue-900 text-white px-3 p-2 m-1 text-xl font-bold rounded-md cursor-pointer ">Login</button>
+            <button disabled={!isEmailValid || !isPasswordValid} type="submit" className="bg-blue-900 text-white px-3 p-2 m-1 text-xl font-bold rounded-md cursor-pointer disabled:bg-gray-500">Login</button>
+
+
+            <div className={`p-2 rounded-md my-1  transition-all  flex items-center justify-start  ${isRes?"h-[50px] opacity-100":"h-0 opacity-0" } duration-300 ${resErr ? "bg-red-500" : "bg-green-500"}`} onClick={() => setIsRes(false)}>
+                <p className='text-lg'>{resMessage}</p>
+            </div>
+
 
             <p className="my-5 font-bold"> Not have an account ! <Link href="/register" className="text-blue-800">Register </Link> </p>
             <p className="my-5 text-right"> <Link href="/register" className="text-blue-800">Forget Password  </Link> </p>
