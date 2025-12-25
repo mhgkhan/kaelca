@@ -8,21 +8,15 @@ export const submitForm = async (path, method, headers, data) => {
             body: JSON.stringify(data)
         });
 
-        if (call.ok) {
-            const response = await call.json();
-            if (response.success) {
-                obj.success = true;
-                obj.message = response.message;
-                obj.data = response.data;
-            }
-            else {
-                obj.success = false;
-                obj.message = response.message;
-            }
+        const response = await call.json();
+        if (response.success) {
+            obj.success = true;
+            obj.message = response.message;
+            obj.data = response.data;
         }
         else {
             obj.success = false;
-            obj.message = call.statusText;
+            obj.message = response.message;
         }
 
 
