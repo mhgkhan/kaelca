@@ -1,5 +1,5 @@
 export const submitForm = async (path, method, headers, data) => {
-    console.log(path, method, headers, data)
+    // console.log(path, method, headers, data)
     let obj = {};
     try {
         const call = await fetch(path, {

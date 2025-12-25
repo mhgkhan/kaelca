@@ -2,6 +2,9 @@ import { Ruluko, Merriweather_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import { cookies } from "next/headers";
+import JWT from "jsonwebtoken";
+
 
 
 
@@ -28,7 +31,39 @@ export const metadata = {
 };
 
 
-export default function RootLayout({ children }) {
+export default async function RootLayout({ children }) {
+
+  const allCookies = await cookies();
+  // console.log(allCookies)
+  
+  const token = allCookies.get("AUTH_KEY");
+  let userData = {
+    name: "",
+    email: ""
+  };
+
+  let authorized;
+
+  if (token) {
+    // decrypting token 
+    const decryptingToken = JWT.verify(token.value, process.env.JWT_SECRET_KEY);
+    const email = decryptingToken.email || null;
+    if (!email) {
+      authorized = false;
+    }
+    else {
+      authorized = true;
+      userData.email = decryptingToken.email;
+      userData.name = decryptingToken.name;
+    }
+  }
+  else {
+    authorized = false;
+  }
+
+  console.log(authorized, userData)
+
+
   return (
     <html lang="en">
       <head>
@@ -37,7 +72,7 @@ export default function RootLayout({ children }) {
       <body
         className={`${ruluko.className} ${merriweathersans.variable}  antialiased`}
       >
-        <Header />
+        <Header authorized={authorized} name={userData.name} email={userData.email} />
         <main className="min-h-[70vh]">{children}</main>
         <Footer />
       </body>

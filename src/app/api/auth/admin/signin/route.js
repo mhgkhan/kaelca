@@ -1,7 +1,8 @@
 import { connectDB } from "@/utils/db/connectDB";
 import { Admin } from "@/utils/db/models/Admin";
 import { NextResponse } from "next/server";
-import bcrypt from "bcrypt";
+import JWT from "jsonwebtoken";
+import { cookies } from "next/headers";
 
 
 connectDB();
@@ -9,6 +10,9 @@ connectDB();
 export async function POST(request) {
     let obj = {};
     let status = 200;
+    const response = new NextResponse();
+    const allCookies = await cookies();
+
     try {
         const payload = await request.json();
 
@@ -42,6 +46,8 @@ export async function POST(request) {
                 }
 
                 else {
+
+
                     obj.success = true;
                     obj.message = "Login Successful."
                     obj.data = checkAdmin
@@ -57,7 +63,25 @@ export async function POST(request) {
         obj.message = err.message;
         status = 500;
     } finally {
+
+        if (obj.success) {
+            const token = JWT.sign({
+                email: obj.data.email,
+                name: obj.data.fullname
+            },
+                process.env.JWT_SECRET_KEY,
+                {
+                    expiresIn: "10h"
+                }
+            )
+
+
+            response.cookies.set("AUTH_KEY", token);
+            allCookies.set("AUTH_KEY", token);
+
+        }
         const data = Object.freeze(obj);
+        // response.json(data, {status})
         return NextResponse.json(data, { status })
     }
 }
