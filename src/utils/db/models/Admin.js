@@ -12,6 +12,7 @@ const AdminSchema = new mongoose.Schema({
         ...defaultOpts,
         unique: true,
     },
+    role: defaultOpts,
     password: defaultOpts,
 });
 

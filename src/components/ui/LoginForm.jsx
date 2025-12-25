@@ -98,13 +98,13 @@ const LoginForm = () => {
             <br />
             <div className="input w-full my-1 flex items-center justify-center gap-2 border-b border-blue-900 py-1">
                 <span className="text-xl"><FaUser /> </span>
-                <input onChange={updateInput} type="email" name="email" required={true} placeholder="Enter email" className="w-full  outline-none px-2 py-1 text-lg bg-none" />
+                <input disabled={loading} onChange={updateInput} type="email" name="email" required={true} placeholder="Enter email" className="w-full  outline-none px-2 py-1 text-lg bg-none" />
             </div>
             {!isEmailValid ? <span className={`text-sm w-full text-red-500 font-bold text-center ${!isEmailValid ? "h-auto" : "h-0 overflow-hidden"}`}>Email is not Valid </span> : ""}
             <br />
             <div className="input w-full my-1 flex items-center justify-center gap-2 border-b border-blue-900 py-1">
                 <span className="text-xl"><FaKey /> </span>
-                <input onChange={updateInput} type="password" name="password" required={true} placeholder="Password" className="w-full  outline-none px-2 py-1 text-lg bg-none" />
+                <input disabled={loading} onChange={updateInput} type="password" name="password" required={true} placeholder="Password" className="w-full  outline-none px-2 py-1 text-lg bg-none" />
             </div>
             {!isPasswordValid ? <span className={`text-sm w-full text-red-500 font-bold text-center ${!isPasswordValid ? "h-auto" : "h-0 overflow-hidden"}`}>Password should be 8 characters long. </span> : ""}
 
