@@ -1,11 +1,12 @@
 export const submitForm = async (path, method, headers, data) => {
+    console.log(path, method, headers, data)
     let obj = {};
     try {
         const call = await fetch(path, {
-            method,
+            method: method,
             headers: headers,
-            data
-        }, data);
+            body: JSON.stringify(data)
+        });
 
         if (call.ok) {
             const response = await call.json();

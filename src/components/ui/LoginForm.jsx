@@ -71,7 +71,7 @@ const LoginForm = () => {
 
             // let obj = {};
             setLoading(true);
-            const sendRequest = await submitForm("/api/auth/signin", "POST", { "content-type": "application/json" }, JSON.stringify(formData))
+            const sendRequest = await submitForm("/api/auth/admin/signin", "POST", { "content-type": "application/json" }, formData)
 
             if (sendRequest.success) {
                 setResErr(false);
@@ -110,10 +110,10 @@ const LoginForm = () => {
 
             <br />
 
-            <button disabled={!isEmailValid || !isPasswordValid} type="submit" className="bg-blue-900 text-white px-3 p-2 m-1 text-xl font-bold rounded-md cursor-pointer disabled:bg-gray-500">Login</button>
+            <button disabled={!isEmailValid || !isPasswordValid || loading} type="submit" className="bg-blue-900 text-white px-3 p-2 m-1 text-xl font-bold rounded-md cursor-pointer disabled:bg-gray-500">Login</button>
 
 
-            <div className={`p-2 rounded-md my-1  transition-all  flex items-center justify-start  ${isRes?"h-[50px] opacity-100":"h-0 opacity-0" } duration-300 ${resErr ? "bg-red-500" : "bg-green-500"}`} onClick={() => setIsRes(false)}>
+            <div className={`p-2 rounded-md my-1  transition-all  flex items-center justify-start  ${isRes ? "h-[50px] opacity-100" : "h-0 opacity-0"} duration-300 ${resErr ? "bg-red-500" : "bg-green-500"}`} onClick={() => setIsRes(false)}>
                 <p className='text-lg'>{resMessage}</p>
             </div>
 
