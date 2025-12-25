@@ -31,7 +31,7 @@ const Header = ({ authorized, name, email }) => {
 
 
     return (
-        <header className="bg-blue-900 text-white dark:bg-slate-950 z-50 sticky top-1">
+        <header className="bg-blue-900 text-white dark:bg-slate-950 z-50 sticky top-0">
             <div className="container mx-auto flex items-end justify-between relative">
 
                 {/* logo section  */}
