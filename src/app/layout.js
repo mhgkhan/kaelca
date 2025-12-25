@@ -47,6 +47,7 @@ export default async function RootLayout({ children }) {
   if (token) {
     // decrypting token 
     const decryptingToken = JWT.verify(token.value, process.env.JWT_SECRET_KEY);
+    console.log(decryptingToken)
     const email = decryptingToken.email || null;
     if (!email) {
       authorized = false;
@@ -61,7 +62,7 @@ export default async function RootLayout({ children }) {
     authorized = false;
   }
 
-  console.log(authorized, userData)
+  // console.log(authorized, userData)
 
 
   return (

@@ -76,6 +76,9 @@ const LoginForm = () => {
             if (sendRequest.success) {
                 setResErr(false);
                 setResMessage(sendRequest.message);
+                setTimeout(() => {
+                    location.href = "/profile"
+                }, 1500);
             }
             else {
                 setResErr(true);
@@ -84,14 +87,6 @@ const LoginForm = () => {
             setIsRes(true);
 
             setLoading(false);
-            if (!resErr) {
-                setTimeout(() => {
-                    location.href = "/profile"
-                }, 1000);
-            }
-            else {
-                return;
-            }
         }
 
     }

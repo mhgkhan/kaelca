@@ -3,6 +3,7 @@ import { Admin } from "@/utils/db/models/Admin";
 import { NextResponse } from "next/server";
 import JWT from "jsonwebtoken";
 import { cookies } from "next/headers";
+import { checkExists } from "@/utils/db/dboperations";
 
 
 connectDB();
@@ -26,18 +27,28 @@ export async function POST(request) {
         else {
             // checking if admin is exists or not 
 
-            const checkAdmin = await Admin.findOne({ email: email });
+            // const checkAdmin = await Admin.findOne({ email: email });
+            const checkAdmin = await checkExists(Admin, { email: email });
 
-            if (!checkAdmin) {
-                obj.success = false;
-                obj.message = "User not found with this email";
-                status = 404;
+
+            if (!checkAdmin.exists) {
+                if (checkAdmin.isErr) {
+                    obj.success = false;
+                    obj.message = checkAdmin.error;
+                    status = 500;
+                }
+                else {
+                    obj.success = false;
+                    obj.message = "Email or password is incorrect!"
+                    status = 400;
+                }
+
             }
 
             else {
                 // checking their password 
                 // const checkPassword = await bcrypt.compare(password, checkAdmin.password);
-                const checkPassword = password === checkAdmin.password;
+                const checkPassword = password === checkAdmin.data.password;
 
                 if (!checkPassword) {
                     obj.success = false;
@@ -50,7 +61,7 @@ export async function POST(request) {
 
                     obj.success = true;
                     obj.message = "Login Successful."
-                    obj.data = checkAdmin
+                    obj.data = checkAdmin.data
                     status = 200;
                 }
 
